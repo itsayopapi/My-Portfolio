@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rooftop at Boardroom | Lekki's Premier Dining Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./logo.jpg" type="image/x-icon">
+    <style>
+        :root {
+            --dark: #1a1a1a;
+            --gold: #c6a467;
+            --green: #2c4f3e;
+            --light: #f5f5f5;
+            --gray: #444444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--light);
+            background-color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: #d4b680;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(198, 164, 103, 0.3);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--light);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: var(--gold);
+            font-size: 2.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Menu Section */
+        .menu {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            color: var(--gold);
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 1rem;
+        }
+        
+        .menu-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+            gap: 1rem;
+        }
+        
+        .category-btn {
+            background: none;
+            border: 2px solid var(--gold);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--gold);
+            color: var(--dark);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .menu-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--gold);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-item h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .menu-item p {
+            color: #ccc;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .note {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            color: #999;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        /* Instagram Section */
+        .instagram {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1614687153866-3545e36983ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .instagram-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .instagram-header i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        .instagram-feed {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .instagram-post {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .instagram-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .instagram-post:hover img {
+            transform: scale(1.1);
+        }
+        
+        .instagram-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .instagram-post:hover .instagram-overlay {
+            opacity: 1;
+        }
+        
+        .instagram-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .instagram-cta {
+            margin-top: 3rem;
+        }
+        
+        .instagram-cta a {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .instagram-cta a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .instagram-cta i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Events Section */
+        .events {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .event-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+        
+        .event-content {
+            padding: 1.8rem;
+        }
+        
+        .event-content h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .event-content p {
+            color: #ccc;
+            margin-top: 0.8rem;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            height: 280px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover:after {
+            opacity: 1;
+        }
+        
+        /* Reservation Section */
+        .reservation {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1576854284880-3200b1c6d614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .reservation-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .reservation-container h2 {
+            color: var(--gold);
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #999;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1510798836521-e4c1b80b0bd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column li {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: #333;
+            border-radius: 50%;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+            color: var(--light);
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Would implement mobile menu toggle */
+            }
+            
+            .menu-items, .events-grid, .gallery-grid, .instagram-feed {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><i class="fas fa-cocktail"></i> THE ROOFTOP</a>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reservation">Reservations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>THE ROOFTOP AT BOARDROOM</h1>
+            <p>Lekki's premier destination for exquisite dining, crafted cocktails, and unforgettable experiences with stunning views.</p>
+            <a href="#reservation" class="btn">Make a Reservation</a>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>An Unforgettable Experience</h2>
+                <p>The Rooftop provides the atmosphere to unwind and indulges you in the party. Our stunning view, expertly crafted cocktails, and great music will provide an unforgettable experience.</p>
+                <p>We also host events like karaoke, games night, and a host of others giving you an unforgettable experience. Located in the heart of Lekki, we offer a sophisticated escape from the ordinary.</p>
+                <a href="#menu" class="btn">Explore Our Menu</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="The Rooftop at Boardroom interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Menu</h2>
+                <p>Discover our exquisite selection of dishes and drinks</p>
+            </div>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="breakfast">Breakfast</button>
+                <button class="category-btn" data-category="starters">Starters</button>
+                <button class="category-btn" data-category="mains">Main Courses</button>
+                <button class="category-btn" data-category="african">African Delights</button>
+                <button class="category-btn" data-category="drinks">Drinks & Cocktails</button>
+            </div>
+            
+            <div class="menu-items">
+                <!-- Breakfast Items -->
+                <div class="menu-item" data-category="breakfast">
+                    <h3>English Breakfast <span class="price">₦9,500</span></h3>
+                    <p>Fried or scrambled eggs, sausage, baked beans, and grilled tomato • Fresh fruit juice or fruit bowl • White or wholewheat toast with butter • Coffee or tea.</p>
+                </div>
+                
+                <div class="menu-item" data-category="breakfast">
+                    <h3>Nigerian Breakfast <span class="price">₦8,500</span></h3>
+                    <p>Spicy scrambled eggs with either boiled yam, sweet potato or plantain, or fried plantain • Fresh fruit juice or fruit bowl • Coffee or tea.</p>
+                </div>
+                
+                <div class="menu-item" data-category="breakfast">
+                    <h3>Continental Breakfast <span class="price">₦9,500</span></h3>
+                    <p>Fresh fruit juice or fruit bowl • Croissant, Danish pantry, or white/wholewheat toast with butter and preserves • Corn flakes, Fruit 'n' Fibre or granola with cold or warm milk, or yogurt • Coffee or tea.</p>
+                </div>
+                
+                <!-- Additional menu items would be added here following the same pattern -->
+                
+                <div class="menu-item" data-category="starters">
+                    <h3>Spring Rolls <span class="price">₦7,000-10,000</span></h3>
+                    <p>Vegetable, chicken or shrimp with sweet chili sauce and soy sauce.</p>
+                </div>
+                
+                <div class="menu-item" data-category="mains">
+                    <h3>Grilled Chicken Breast <span class="price">₦16,000</span></h3>
+                    <p>Chargrilled marinated chicken breast served with rotatouille, mashed potato & a special mustard mushroom sauce.</p>
+                </div>
+                
+                <div class="menu-item" data-category="african">
+                    <h3>Nkwobi <span class="price">₦10,000</span></h3>
+                    <p>A traditional Nigerian meal made of roasted cow legs slathered in a hot, thick sauce made of palm oil.</p>
+                </div>
+                
+                <div class="menu-item" data-category="drinks">
+                    <h3>Mango Tango <span class="price">₦8,000</span></h3>
+                    <p>A fusion of Tequila, mango puree, orange juice and our house syrup.</p>
+                </div>
+            </div>
+            
+            <p class="note">ALL PRICES ARE EXCLUSIVE OF ALL APPLICABLE TAXES & SERVICE CHARGE</p>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <div class="section-header">
+                <div class="instagram-header">
+                    <i class="fab fa-instagram"></i>
+                    <h2>Follow Us on Instagram</h2>
+                </div>
+                <p>See the latest from The Rooftop at Boardroom</p>
+            </div>
+            
+            <div class="instagram-feed">
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Instagram Post">
+                    <div class="instagram-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Instagram Post">
+                    <div class="instagram-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Instagram Post">
+                    <div class="instagram-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Instagram Post">
+                    <div class="instagram-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Instagram Post">
+                    <div class="instagram-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Instagram Post">
+                    <div class="instagram-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instagram-cta">
+                <a href="https://www.instagram.com/rooftop.boardroom/" target="_blank">
+                    <i class="fab fa-instagram"></i> Follow @rooftop.boardroom
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Events & Entertainment</h2>
+                <p>Experience our vibrant events calendar</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Karaoke Night">
+                    </div>
+                    <div class="event-content">
+                        <h3>Karaoke Nights</h3>
+                        <p>Every Thursday from 7PM. Show off your singing skills with our professional karaoke setup.</p>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1612468008270-2f3f5d5b9789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Games Night">
+                    </div>
+                    <div class="event-content">
+                        <h3>Games Night</h3>
+                        <p>Every Tuesday from 6PM. Enjoy board games, trivia, and more with friends.</p>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Live Music">
+                    </div>
+                    <div class="event-content">
+                        <h3>Live Music</h3>
+                        <p>Weekend performances by talented local artists creating the perfect ambiance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>Take a visual journey through The Rooftop experience</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Restaurant View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Cocktails">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Food Presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464822759849-e0e100921dae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Skyline View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Interior Design">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event Night">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="reservation">
+        <div class="container reservation-container">
+            <h2>Make a Reservation</h2>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Your Phone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label for="requests">Special Requests</label>
+                    <textarea id="requests" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn">Book Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>The Rooftop at Boardroom</h3>
+                    <p>Lekki, Lagos, Nigeria</p>
+                    <p>Opening Hours:</p>
+                    <p>Monday - Sunday: 7AM - 11PM</p>
+                    <p>Breakfast: 7AM - 12PM Daily</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Phone: +234 XXX XXX XXXX</p>
+                    <p>Email: info@therooftoplekki.com</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/rooftop.boardroom/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 The Rooftop at Boardroom. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for menu filtering and header scroll effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Menu filtering
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter menu items
+                    menuItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
